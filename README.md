@@ -12,18 +12,6 @@ Xi Yang, Wenjiao Dong, De Cheng and Nannan Wang are with the State Key Laborator
 
 ---
 
-## Overview
-
-Video-based visible-infrared person re-identification (VVI-ReID) aims to match target pedestrians between visible and infrared videos, which is of great significance for 24-hour surveillance systems. The key challenge is to learn **modality-invariant** and **spatio-temporal-invariant** sequence-level representations, in the presence of modality differences, spatio-temporal misalignment and domain shift noise.
-
-<p align="center">
-  <img src="assets/fig1_challenges.png" width="100%" alt="Challenges of VVI-ReID">
-</p>
-
-<p align="center"><sub><i>Fig. 1 — Illustration of the current challenges of video-based visible-infrared person re-identification: modality difference (green), spatio-temporal misalignment (purple) and domain shift noise (orange).</i></sub></p>
-
-Existing methods predominantly emphasize reducing modality discrepancy while relatively neglecting temporal misalignment and domain shift noise reduction. To this end, this paper proposes a VVI-ReID framework called **Feature Alignment Network (FA-Net)** from the perspective of feature alignment, forming a complete hierarchical alignment system that acts at the **input**, **feature** and **distribution** levels.
-
 ## Method
 
 ### Overall Architecture
@@ -59,36 +47,7 @@ FA-Net comprises three components:
 
 <p align="center"><sub><i>Fig. 4 — Architecture of the Spatio-Temporal Alignment Module (STAM). In practical implementation, STAM comprises three branches: the Spatial Feature Alignment branch, the Temporal Feature Alignment branch, and the Spatio-Temporal Feature Alignment branch.</i></sub></p>
 
-### Alignment Quality
-
-<p align="center">
-  <img src="assets/fig5_heatmap_comparison.png" width="100%"
-       alt="Feature responses with and without STAM">
-</p>
-
-<p align="center"><sub><i>Fig. 5 — Comparison of feature responses with and without STAM. (a) Input visible image and its feature heatmaps. (b) Input infrared image and its feature heatmaps. The second column shows feature responses without STAM, while the third column displays responses after incorporating STAM.</i></sub></p>
-
-Without STAM the model exhibits significant responses to background and occlusions (dispersed red highlighted areas); with STAM, the model's attention distinctly focuses on the main structure of pedestrians, showing more precise feature localization in both visible and infrared modalities.
-
-## Code
-
-### Repository Structure
-
-| File | Description |
-| --- | --- |
-| `train.py` | Training entry point (includes SAM-GA, STAM and MDC) |
-| `test.py` | Testing / evaluation entry point |
-| `model_main.py` | Backbone, STAM and the overall network definition |
-| `loss.py` | Loss functions (`OriTripletLoss`, `CenterTripletLoss`, `MMD_loss`, `KLDivLoss`, `JSDLoss`, `SOTLoss`, ...) |
-| `data_manager.py` | Dataset definition and sampling for HITSZ-VCM |
-| `data_loader.py` | Video dataset loaders for training / testing |
-| `eval_metrics.py` | CMC and mAP evaluation |
-| `ChannelAug.py` | Channel augmentation and random erasing |
-| `resnet.py`, `inflate.py` | ResNet backbone and I3D-style inflation |
-| `transforms.py`, `utils.py`, `rank.py` | Helper utilities |
-| `tsne.py`, `tsne1.py` | Feature distribution (t-SNE) visualization |
-
-### Environment
+## Environment
 
 The code is implemented with PyTorch. Main dependencies:
 
@@ -101,7 +60,7 @@ Pillow
 mobile_sam  (MobileSAM, for the SAM-GA module)
 ```
 
-### Data Preparation
+## Data Preparation
 
 Please download the **HITSZ-VCM** dataset and set its root path in `data_manager.py`:
 
@@ -110,13 +69,13 @@ class VCM(object):
     root = '/path/to/VCM-HITSZ/'
 ```
 
-### Training
+## Training
 
 ```bash
 python train.py --dataset VCM --arch resnet50 --gpu 0
 ```
 
-### Testing
+## Testing
 
 ```bash
 python test.py --dataset VCM --mode all --gpu 0 -r save_model/<your_checkpoint>.t
