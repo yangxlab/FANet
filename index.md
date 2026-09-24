@@ -10,7 +10,6 @@ title: FA-Net
 
 - **Paper (DOI):** <https://doi.org/10.1109/TIP.2025.3642633>
 - **IEEE Xplore:** <https://ieeexplore.ieee.org/document/11301926>
-- **Code:** <https://github.com/yangxlab/FANet>
 
 ---
 
