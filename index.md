@@ -4,15 +4,13 @@ title: FA-Net
 
 # FA-Net: A Feature Alignment Network for Video-Based Visible-Infrared Person Re-Identification
 
-**Xi Yang**, Wenjiao Dong, Xian Wang, De Cheng\*, Nannan Wang
+**Xi Yang**, Wenjiao Dong, Xian Wang, De Cheng\* (corresponding author), Nannan Wang
 
 *IEEE Transactions on Image Processing (TIP)*, vol. 34, pp. 8406–8420, 2025
 
 - **Paper (DOI):** <https://doi.org/10.1109/TIP.2025.3642633>
 - **IEEE Xplore:** <https://ieeexplore.ieee.org/document/11301926>
 - **Code:** <https://github.com/yangxlab/FANet>
-
-Xi Yang, Wenjiao Dong, De Cheng and Nannan Wang are with the State Key Laboratory of Integrated Services Networks, School of Telecommunications Engineering, Xidian University, Xi'an 710071, China. Xian Wang is with the Hangzhou Institute of Technology, Xidian University, Hangzhou 311231, China. (\*Corresponding author: De Cheng.)
 
 ---
 
